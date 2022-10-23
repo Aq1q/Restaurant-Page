@@ -1,3 +1,5 @@
+import { createHome } from './home';
+
 function createListElement (id, text) {
     const element = document.createElement('li')
     element.id = id;
@@ -10,56 +12,77 @@ function createListElement (id, text) {
     element.style.color = '#1C1A29';
     element.style.padding = '0 4px 4px 4px';
     element.style.backgroundColor = 'rebeccapurple';
+    element.style.flexGrow = '1';
+    element.style.textAlign = 'center';
+    element.style.height = '90%';
+    element.style.display = 'flex';
+    element.style.alignItems = 'center';
+    element.style.justifyContent = 'center';
 
     return element;
+}
+
+function createHeadT () {
+    const headerTop = document.createElement('div');
+    headerTop.id = 'headerTop';
+    headerTop.style.height = '80px';
+    headerTop.style.width = '100%';
+    headerTop.style.backgroundColor = '#b2b2b2';
+    headerTop.style.display = 'flex';
+    headerTop.style.justifyContent = 'center';
+    headerTop.style.alignItems = 'center';
+
+    const span = document.createElement('span');
+    span.innerText = 'Restaurant';
+    span.style.fontSize = '2rem';
+
+
+    headerTop.appendChild(span);
+    return headerTop;
 }
 
 function createHeader () {
     const header = document.createElement('header');
     header.style.width = '100%';
-    header.style.height = '50px';
-    header.style.backgroundColor = 'lightcoral';
-    header.style.display = 'flex';
-    header.style.justifyContent = 'center';
-    header.style.alignItems = 'center';
+    header.style.height = '140px';    
+
+    const headerBot = document.createElement('div');
+    headerBot.id = 'headerBot';
+    headerBot.style.height = '60px';
+    headerBot.style.width = '100%';
+    headerBot.style.backgroundColor = 'lightcoral';
+    headerBot.style.display = 'flex';
+    headerBot.style.justifyContent = 'center';
 
     const ul = document.createElement('ul');
     ul.style.alignItems = 'center';
     ul.style.display = 'flex';
-    ul.style.gap = 'max(100px)';
-    ul.style.justifyContent = 'center';
+    ul.style.justifyContent = 'space-evenly';
     ul.style.margin = '0';
+    ul.style.padding = '0';
+    ul.style.width = '100%';
 
     ul.appendChild(createListElement('home', 'Home'));
     ul.appendChild(createListElement('menu', 'Menu'));
     ul.appendChild(createListElement('contact','Contact'));
     
-    header.appendChild(ul);
+    headerBot.appendChild(ul);
+    
+    header.appendChild(createHeadT());
+    header.appendChild(headerBot);
 
     return header;
 }
 
-function createMain() {
-    const main = document.createElement('main');
-    const headline = document.createElement('div');
-    const text = document.createElement('div');
-
-    headline.id = 'headline';
-    headline.innerText = 'Restaurant';
-
-    text.classList.add('text-box');
-    text.innerText = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa nemo repellat nisi est esse';
-
-    main.appendChild(headline);
-    main.appendChild(text);
-    
-    return main;
-}
-
 function pageLoad () {
+    const body = document.body;
+    body.style.height = '100vh';
+    body.style.margin = '0';
+    body.style.padding = '0';
+    
     const content = document.getElementById('content');
     content.appendChild(createHeader());
-    content.appendChild(createMain());
+    content.appendChild(createHome());
 }
 
-export {pageLoad, createMain};
+export {pageLoad};
