@@ -1,4 +1,5 @@
 import { createHome } from './home';
+import { createContact } from './contact';
 
 function createListElement (id, text) {
     const element = document.createElement('li')
@@ -7,10 +8,10 @@ function createListElement (id, text) {
     element.innerText = text;
 
     element.style.fontSize = '1.5rem';
+    element.style.fontFamily = 'Helvetica';
     element.style.listStyle = 'none';
     element.style.border = '1px solid gray';
     element.style.color = '#1C1A29';
-    element.style.padding = '0 4px 4px 4px';
     element.style.backgroundColor = 'rebeccapurple';
     element.style.flexGrow = '1';
     element.style.textAlign = 'center';
@@ -18,6 +19,15 @@ function createListElement (id, text) {
     element.style.display = 'flex';
     element.style.alignItems = 'center';
     element.style.justifyContent = 'center';
+
+    element.addEventListener('mouseenter', (e) => {
+        e.target.style.cursor = 'pointer';
+        e.target.style.transform = 'scale(1.1)';
+        
+    });
+    element.addEventListener('mouseleave', (e) => {
+        e.target.style.transform = null;
+    })
 
     return element;
 }
@@ -34,6 +44,7 @@ function createHeadT () {
 
     const span = document.createElement('span');
     span.innerText = 'Restaurant';
+    span.style.fontFamily = 'Helvetica';
     span.style.fontSize = '2rem';
 
 
@@ -81,8 +92,29 @@ function pageLoad () {
     body.style.padding = '0';
     
     const content = document.getElementById('content');
+    content.style.display = 'flex';
+    content.style.flexDirection = 'column';
+    content.style.alignItems = 'center';
+    content.style.margin = '0';
+    content.style.height = '100vh';
+    content.style.width = '100%';
+    content.style.backgroundColor = 'blue';
+
+    const main = document.createElement('main');
+    main.id = 'main';
+
+    main.style.width = '100%';
+    main.style.height = '90%';
+    main.style.marginTop = 'auto';
+    main.style.backgroundColor = 'pink';
+    main.style.display = 'flex';
+    main.style.alignItems = 'center';
+    main.style.flexDirection = 'column';
+    main.style.rowGap = '100px';
+
     content.appendChild(createHeader());
-    content.appendChild(createHome());
+    content.appendChild(main);
+    content.appendChild(createContact());
 }
 
 export {pageLoad};

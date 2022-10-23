@@ -1,5 +1,5 @@
-function createHome() {
-    const main = document.createElement('main');
+function createHome () {
+    const main = document.getElementById('main');
     const headline = document.createElement('div');
     const text = document.createElement('div');
 

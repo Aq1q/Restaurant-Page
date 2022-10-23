@@ -1,5 +1,5 @@
 function createDivs () {
-    const main = document.createElement('main');
+    const main = document.getElementById('main');
     const headline = document.createElement('div');
     
     headline.id = 'headline';

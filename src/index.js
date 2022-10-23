@@ -8,19 +8,19 @@ pageLoad();
 const home = document.getElementById('home');
 const menu = document.getElementById('menu');
 const contact = document.getElementById('contact');
-const content = document.getElementById('content');
+const main = document.getElementById('main');
 
 home.addEventListener ('click', () => {
-    content.removeChild(content.lastChild);
+    main.innerHTML = '';
     homeLoad();
 });
 
 menu.addEventListener ('click', () => {
-    content.removeChild(content.lastChild);
+    main.innerHTML = '';
     menuLoad();
 });
 
 contact.addEventListener ('click', () => {
-    content.removeChild(content.lastChild);
+    main.innerHTML = '';
     contactLoad();
 });
