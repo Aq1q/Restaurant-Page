@@ -1,5 +1,6 @@
 import { createHome } from './home';
 import { createContact } from './contact';
+import Background from './contentBg.jpg';
 
 function createListElement (id, text) {
     const element = document.createElement('li')
@@ -18,7 +19,7 @@ function createListElement (id, text) {
     element.style.height = '90%';
     element.style.display = 'flex';
     element.style.alignItems = 'center';
-    element.style.justifyContent = 'center';
+    element.style.justifyContent = Image;
 
     element.addEventListener('mouseenter', (e) => {
         e.target.style.cursor = 'pointer';
@@ -98,12 +99,14 @@ function pageLoad () {
     content.style.margin = '0';
     content.style.height = '100vh';
     content.style.width = '100%';
-    content.style.backgroundColor = 'blue';
+    content.style.backgroundImage = `url(${Background})`;
+    content.style.backgroundSize = 'cover';
+    
 
     const main = document.createElement('main');
     main.id = 'main';
 
-    main.style.width = '100%';
+    main.style.width = '70%';
     main.style.height = '90%';
     main.style.marginTop = 'auto';
     main.style.backgroundColor = 'pink';

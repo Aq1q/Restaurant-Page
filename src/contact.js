@@ -5,7 +5,8 @@ function contactDiv (...info) {
     div.classList.add('contact');
 
     div.style.backgroundColor = 'purple';
-    div.style.width = '462px';
+    div.style.width = '45vw';
+    div.style.maxWidth = '462px';
     div.style.height = '150px';
     div.style.borderRadius = '10px 0 10px 0';
     div.style.paddingLeft = '20px';
@@ -30,8 +31,9 @@ function contactDiv (...info) {
 
     const mike = new Image();
     mike.src = Mike;
-    mike.style.maxHeight = '100px';
-    mike.style.maxWidth = 'auto';
+    mike.style.height = '50%';
+    mike.style.minWidth = '120px';
+    mike.style.Width = 'auto';
     mike.style.position = 'absolute';
     mike.style.top = '10px';
     mike.style.right = '10px';
